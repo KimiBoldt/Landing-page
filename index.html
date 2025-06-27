@@ -1,5 +1,5 @@
-
-<html lang="en">
+<!DOCTYPE html>
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,7 @@
     body {
       margin: 0;
       padding: 0;
-      background-image: url('bg.gif'); /* replace with your image */
+      background-image: url('bg.gif'); /* Replace with your local image */
       background-size: cover;
       background-position: center;
       font-family: Arial, sans-serif;
@@ -18,15 +18,15 @@
       align-items: center;
     }
 
-   .form-container {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 40px;
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  width: 90%;
-  max-width: 400px;
-  box-sizing: border-box;
+    .form-container {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 400px;
+      box-sizing: border-box;
     }
 
     input {
@@ -57,40 +57,34 @@
       color: gray;
       text-align: center;
     }
+
+    label {
+      color: gray;
+      font-size: 14px;
+    }
+
+    label input[type="checkbox"] {
+      margin-right: 8px;
+    }
   </style>
 </head>
 <body>
-  <form class="form-container" id="landingForm">
+  <form
+    class="form-container"
+    action="https://script.google.com/macros/s/AKfycby6QaAgqKmSJ1UG41E5-a-ysCmx5OQq0TlQpLsUE6OrB9-lzzuVI0vyLj9hTygH4QDs/exec"
+    method="POST"
+  >
     <h2>Lass uns in Kontakt treten</h2>
+
     <input type="text" name="name" placeholder="Dein Name" required />
     <input type="tel" name="phone" placeholder="Deine Telefonnummer" required />
-    
-  <label style="color: gray; display: block; margin: 10px 0;">
-    Ich bin damit einverstanden, dass diese Daten zu Kontaktaufnahmezwecken gespeichert werden und ich telefonisch kontaktiert werde.
-    <input type="checkbox" name="consent" value="Yes" required />
-  </label>
-    
-    <button type="submit">Los Gehts!</button>
+
+    <label>
+      <input type="checkbox" name="consent" value="Yes" required />
+      Ich bin damit einverstanden, dass diese Daten zu Kontaktaufnahmezwecken gespeichert werden und ich telefonisch kontaktiert werde.
+    </label>
+
+    <button type="submit">Los Geht's!</button>
   </form>
-
-  <script>
-    const form = document.getElementById("landingForm");
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const data = new FormData(form);
-
-      const response = await fetch("https://script.google.com/macros/s/AKfycby6QaAgqKmSJ1UG41E5-a-ysCmx5OQq0TlQpLsUE6OrB9-lzzuVI0vyLj9hTygH4QDs/exec", {
-        method: "POST",
-        mode: "no-cors", // prevents CORS errors but hides response
-        body: data,
-      });
-
-      alert("Dankeschön, deine Anfrage ist angekommen!");
-      form.reset();
-    });
-  </script>
 </body>
 </html>
-
