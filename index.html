@@ -1,0 +1,90 @@
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('https://i.redd.it/uwwte8wps4h91.gif'); /* replace with your image */
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+   .form-container {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 400px;
+  box-sizing: border-box;
+    }
+
+    input {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 15px 0;
+      border: none;
+      border-radius: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    h2 {
+      color: gray;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <form class="form-container" id="landingForm">
+    <h2>Jetzt Beitreten</h2>
+    <input type="text" name="name" placeholder="Dein Name" required />
+    <input type="tel" name="phone" placeholder="Deine Telefonnummer" required />
+    <button type="submit">Einreichen</button>
+  </form>
+
+  <script>
+    const form = document.getElementById("landingForm");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const data = new FormData(form);
+
+      const response = await fetch("https://script.google.com/macros/s/AKfycby6QaAgqKmSJ1UG41E5-a-ysCmx5OQq0TlQpLsUE6OrB9-lzzuVI0vyLj9hTygH4QDs/exec", {
+        method: "POST",
+        mode: "no-cors", // prevents CORS errors but hides response
+        body: data,
+      });
+
+      alert("Dankeschön, deine Anfrage ist angekommen!");
+      form.reset();
+    });
+  </script>
+</body>
+</html>
+
