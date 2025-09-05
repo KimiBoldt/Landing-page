@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +7,7 @@
     body {
       margin: 0;
       padding: 0;
-      background-image: url('bg.png'); /* replace with your image */
+      background-image: url('bg.png'); /* ersetzen durch eigenes Bild */
       background-size: cover;
       background-position: center;
       font-family: Arial, sans-serif;
@@ -16,18 +16,18 @@
       justify-content: center;
       align-items: flex-end;
       padding-bottom: 40px;
-      position: relative; /* required for gradient overlay */
+      position: relative;
       overflow: hidden;
     }
 
-    /* gradient overlay for readability */
+    /* Gradient Overlay */
     body::before {
       content: "";
       position: absolute;
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 70%; /* adjust as needed */
+      height: 70%;
       background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
       pointer-events: none;
       z-index: 0;
@@ -35,36 +35,41 @@
 
     .form-container {
       position: relative;
-      z-index: 1; /* keep above gradient */
+      z-index: 1;
       background: rgba(255, 255, 255, 0.25);
       border-radius: 20px;
-      padding: 40px;
-      width: 90%;
-      max-width: 400px;
+      padding: 30px 40px;
+      display: inline-block; /* Box passt sich an Inhalt an */
       box-sizing: border-box;
-
       backdrop-filter: blur(12px) saturate(180%);
       -webkit-backdrop-filter: blur(12px) saturate(180%);
       border: 1px solid rgba(255, 255, 255, 0.4);
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+      text-align: center;
     }
 
     h2 {
       color: #111;
-      text-align: center;
+      margin-top: 0;
+      margin-bottom: 20px;
       text-shadow: 0 1px 3px rgba(255, 255, 255, 0.6);
     }
 
     label {
       color: #111;
-      display: block;
-      margin: 10px 0;
       font-size: 14px;
       line-height: 1.6;
       text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0 20px 0;
+      text-align: left;
     }
 
-    input {
+    input[type="text"],
+    input[type="tel"] {
       display: block;
       width: 100%;
       padding: 10px;
@@ -74,6 +79,11 @@
       background: white;
       color: black;
       font-size: 14px;
+    }
+
+    input[type="checkbox"] {
+      flex-shrink: 0;
+      transform: scale(1.2); /* Checkbox leicht größer */
     }
 
     button {
@@ -99,7 +109,7 @@
     <input type="tel" name="phone" placeholder="Deine Telefonnummer" required />
     
     <label>
-      Ich bin damit einverstanden, dass diese Daten zu Kontaktaufnahmezwecken gespeichert werden und ich telefonisch kontaktiert werde.
+      <span>Ich bin damit einverstanden, dass diese Daten zu Kontaktaufnahmezwecken gespeichert werden und ich telefonisch kontaktiert werde.</span>
       <input type="checkbox" name="consent" value="Yes" required />
     </label>
     
@@ -114,7 +124,7 @@
 
       const data = new FormData(form);
 
-      const response = await fetch("https://script.google.com/macros/s/AKfycby6QaAgqKmSJ1UG41E5-a-ysCmx5OQq0TlQpLsUE6OrB9-lzzuVI0vyLj9hTygH4QDs/exec", {
+      await fetch("https://script.google.com/macros/s/AKfycby6QaAgqKmSJ1UG41E5-a-ysCmx5OQq0TlQpLsUE6OrB9-lzzuVI0vyLj9hTygH4QDs/exec", {
         method: "POST",
         mode: "no-cors",
         body: data,
