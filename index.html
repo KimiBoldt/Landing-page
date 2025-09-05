@@ -20,64 +20,86 @@
 
     .form-container {
       background: transparent; /* fully transparent */
-      padding: 40px;
-      border-radius: 20px;
+      padding: 20px;
       width: 90%;
       max-width: 400px;
       box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 15px; /* spacing between elements */
+    }
+
+    .box {
+      background: white;
+      border-radius: 12px;
+      padding: 12px 16px;
+      box-sizing: border-box;
+      width: 100%;
     }
 
     h2 {
       color: black;
       text-align: center;
+      margin: 0;
+    }
+
+    input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background: transparent; /* text sits directly on the box background */
+      font-size: 14px;
+      color: black;
     }
 
     label {
       color: black;
-      display: block;
-      margin: 10px 0;
-    }
-
-    input {
-      display: block;
-      width: 100%;
-      padding: 10px;
-      margin: 15px 0;
-      border: none;
-      border-radius: 10px;
-      background: white;
-      color: black;
+      display: flex;
+      align-items: center;
+      gap: 8px;
       font-size: 14px;
     }
 
     button {
       width: 100%;
-      padding: 12px;
       border: none;
       border-radius: 10px;
       background-color: white;
       color: black;
       font-size: 16px;
+      padding: 12px;
       cursor: pointer;
     }
 
     button:hover {
-      background-color: #f0f0f0; /* light gray hover effect */
+      background-color: #f0f0f0; /* light gray hover */
     }
   </style>
 </head>
 <body>
   <form class="form-container" id="landingForm">
-    <h2>Lass uns in Kontakt treten</h2>
-    <input type="text" name="name" placeholder="Dein Name" required />
-    <input type="tel" name="phone" placeholder="Deine Telefonnummer" required />
+    <div class="box">
+      <h2>Lass uns in Kontakt treten</h2>
+    </div>
+
+    <div class="box">
+      <input type="text" name="name" placeholder="Dein Name" required />
+    </div>
+
+    <div class="box">
+      <input type="tel" name="phone" placeholder="Deine Telefonnummer" required />
+    </div>
     
-    <label>
-      Ich bin damit einverstanden, dass diese Daten zu Kontaktaufnahmezwecken gespeichert werden und ich telefonisch kontaktiert werde.
-      <input type="checkbox" name="consent" value="Yes" required />
-    </label>
+    <div class="box">
+      <label>
+        <input type="checkbox" name="consent" value="Yes" required />
+        Ich bin damit einverstanden, dass diese Daten zu Kontaktaufnahmezwecken gespeichert werden und ich telefonisch kontaktiert werde.
+      </label>
+    </div>
     
-    <button type="submit">Los Gehts!</button>
+    <div class="box">
+      <button type="submit">Los Gehts!</button>
+    </div>
   </form>
 
   <script>
