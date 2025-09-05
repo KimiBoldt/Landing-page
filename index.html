@@ -14,18 +14,19 @@
       height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-end; /* push form to bottom */
+      padding-bottom: 40px; /* spacing from bottom edge */
     }
 
-   .form-container {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 40px;
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  width: 90%;
-  max-width: 400px;
-  box-sizing: border-box;
+    .form-container {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 400px;
+      box-sizing: border-box;
     }
 
     input {
@@ -56,6 +57,12 @@
       color: gray;
       text-align: center;
     }
+
+    label {
+      color: gray;
+      display: block;
+      margin: 10px 0;
+    }
   </style>
 </head>
 <body>
@@ -64,10 +71,10 @@
     <input type="text" name="name" placeholder="Dein Name" required />
     <input type="tel" name="phone" placeholder="Deine Telefonnummer" required />
     
-  <label style="color: gray; display: block; margin: 10px 0;">
-    Ich bin damit einverstanden, dass diese Daten zu Kontaktaufnahmezwecken gespeichert werden und ich telefonisch kontaktiert werde.
-    <input type="checkbox" name="consent" value="Yes" required />
-  </label>
+    <label>
+      Ich bin damit einverstanden, dass diese Daten zu Kontaktaufnahmezwecken gespeichert werden und ich telefonisch kontaktiert werde.
+      <input type="checkbox" name="consent" value="Yes" required />
+    </label>
     
     <button type="submit">Los Gehts!</button>
   </form>
