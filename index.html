@@ -7,7 +7,7 @@
     body {
       margin: 0;
       padding: 0;
-      background-image: url('bg.png'); /* ersetzen durch eigenes Bild */
+      background-image: url('bg.png');
       background-size: cover;
       background-position: center;
       font-family: Arial, sans-serif;
@@ -39,13 +39,16 @@
       background: rgba(255, 255, 255, 0.25);
       border-radius: 20px;
       padding: 30px 40px;
-      display: inline-block; /* Box passt sich an Inhalt an */
+      display: inline-block;
       box-sizing: border-box;
       backdrop-filter: blur(12px) saturate(180%);
       -webkit-backdrop-filter: blur(12px) saturate(180%);
       border: 1px solid rgba(255, 255, 255, 0.4);
       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
       text-align: center;
+      max-width: 400px;
+      width: 100%;
+      margin: 0 auto; /* zentriert */
     }
 
     h2 {
@@ -83,7 +86,7 @@
 
     input[type="checkbox"] {
       flex-shrink: 0;
-      transform: scale(1.2); /* Checkbox leicht größer */
+      transform: scale(1.2);
     }
 
     button {
@@ -99,6 +102,28 @@
 
     button:hover {
       background-color: #f0f0f0;
+    }
+
+    /* 📱 Mobile Optimierung */
+    @media (max-width: 480px) {
+      .form-container {
+        max-width: 320px;  /* schmaler */
+        padding: 20px 25px;
+      }
+      h2 {
+        font-size: 18px;
+      }
+      label {
+        font-size: 13px;
+      }
+      input[type="text"],
+      input[type="tel"] {
+        font-size: 13px;
+      }
+      button {
+        font-size: 14px;
+        padding: 10px;
+      }
     }
   </style>
 </head>
