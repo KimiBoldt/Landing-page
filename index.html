@@ -19,14 +19,23 @@
     }
 
     .form-container {
-      background: rgba(255, 255, 255, 0.2);
+      background: transparent; /* fully transparent */
       padding: 40px;
       border-radius: 20px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
       width: 90%;
       max-width: 400px;
       box-sizing: border-box;
+    }
+
+    h2 {
+      color: black;
+      text-align: center;
+    }
+
+    label {
+      color: black;
+      display: block;
+      margin: 10px 0;
     }
 
     input {
@@ -36,6 +45,9 @@
       margin: 15px 0;
       border: none;
       border-radius: 10px;
+      background: white;
+      color: black;
+      font-size: 14px;
     }
 
     button {
@@ -43,25 +55,14 @@
       padding: 12px;
       border: none;
       border-radius: 10px;
-      background-color: #4CAF50;
-      color: white;
+      background-color: white;
+      color: black;
       font-size: 16px;
       cursor: pointer;
     }
 
     button:hover {
-      background-color: #45a049;
-    }
-
-    h2 {
-      color: gray;
-      text-align: center;
-    }
-
-    label {
-      color: gray;
-      display: block;
-      margin: 10px 0;
+      background-color: #f0f0f0; /* light gray hover effect */
     }
   </style>
 </head>
